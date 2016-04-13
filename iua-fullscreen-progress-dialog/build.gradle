@@ -1,5 +1,29 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'iua-fullscreen-progress-dialog'
+
+    publishedGroupId = 'ua.in.iua'
+    libraryName = 'IUA-Fullscreen-Progress-Dialog'
+    artifact = 'iua-fullscreen-progress-dialog'
+
+    libraryDescription = 'Simple UI blocking progress dialog'
+
+    siteUrl = 'https://github.com/ihorsuniversalapps/iua-debug-tools'
+    gitUrl = 'https://github.com/ihorsuniversalapps/iua-debug-tools.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'phoenixria'
+    developerName = 'Ihor Rusin'
+    developerEmail = 'ihor.rusin@iua.in.ua'
+
+    licenseName = 'MIT'
+    licenseUrl = 'https://github.com/ihorsuniversalapps/iua-fullscreen-progress-dialog/blob/master/LICENSE'
+    allLicenses = ["MIT"]
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -23,3 +47,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
 }
+
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
