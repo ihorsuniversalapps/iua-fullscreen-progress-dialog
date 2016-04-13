@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">IUA-Fullscreen-Progress-Dialog</string>
+    <string name="dialog_progress_default_text">Please wait a moment…</string>
+</resources>

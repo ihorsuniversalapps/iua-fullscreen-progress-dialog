@@ -19,8 +19,7 @@ dependencies {
 ```
 ### Usage
 
-Put next code in your `Activity` class in the `#onCreate()` method, for instance
-(In the reality you should open it from button click listener or some another trigger).
+Put next code in your `Activity` class in the `#onCreate()` method, for instance.
 
 ```java
 @Override
@@ -28,19 +27,24 @@ Put next code in your `Activity` class in the `#onCreate()` method, for instance
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DebugPanelDialog panel = new DebugPanelDialog.newIntance("serverName", BuildConfig.VERSION_NAME);
-        panel.show(this);
+        new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                dialog.dismiss();
+                            }
+                        });
+                    }
+                }).start();
     }
 ```
-### Logger
-
-For adding items to log call:
-
-```java
-Logger.getInstance().log(this, Logger.LogType.DEBUG, "Test");
-```
-
-All logged records you can see in the debug panel.
 
 # License
 
