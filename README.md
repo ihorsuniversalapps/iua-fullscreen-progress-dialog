@@ -55,7 +55,7 @@ Progress dialog supports next customizations:
 
 * `setTintColor` - sets the color of progress indicator and message below.
 * `setDimAmount` - sets the transparency of dialog.
-* 'setMessage()` - sets the message below progress indicator.
+* `setMessage()` - sets the message below progress indicator.
 
 # License
 
