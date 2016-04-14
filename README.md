@@ -1,6 +1,6 @@
 # IUA Fullscreen Progress Dialog
 
-Simple progress dialog that block UI.
+Simple progress indicator dialog that blocks UI during background process is running.
 
 ![screenshot 1](https://github.com/ihorsuniversalapps/iua-fullscreen-progress-dialog/raw/master/screenshot1.png "ScreenShot Of Dialog")
 
@@ -27,24 +27,35 @@ Put next code in your `Activity` class in the `#onCreate()` method, for instance
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final FullscreenProgressDialog dialog = new FullscreenProgressDialog();
+        dialog.show(this);
+
         new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000); // Do something here
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        try {
-                            Thread.sleep(5000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                dialog.dismiss();
-                            }
-                        });
+                        dialog.dismiss();
                     }
-                }).start();
+                });
+            }
+        }).start();
     }
 ```
+
+### Customization
+
+Progress dialog supports next customizations:
+
+* `setTintColor` - sets the color of progress indicator and message below.
+* `setDimAmount` - sets the transparency of dialog.
+* `setMessage()` - sets the message below progress indicator.
 
 # License
 
