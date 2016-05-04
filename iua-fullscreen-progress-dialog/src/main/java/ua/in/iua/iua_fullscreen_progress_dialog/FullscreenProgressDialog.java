@@ -74,7 +74,7 @@ public class FullscreenProgressDialog extends BaseFullscreenDialog {
     }
 
     public void setMessage(String message) {
-        if (message != null && isShowing()) {
+        if (message != null && tvMessage != null) {
             tvMessage.setText(message);
         }
     }
