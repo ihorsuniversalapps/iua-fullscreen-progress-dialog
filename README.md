@@ -14,7 +14,7 @@ Include the dependency:
 
 ```groovy
 dependencies {
-    compile 'ua.in.iua:iua-fullscreen-progress-dialog:1.0.0'
+    compile 'ua.in.iua:iua-fullscreen-progress-dialog:1.0.2'
 }
 ```
 ### Usage
