@@ -21,12 +21,14 @@ import android.widget.TextView;
 public class FullscreenProgressDialog extends BaseFullscreenDialog {
 
     private final static String TAG = "ProgressDialog";
+    private final float DEFAULT_DIM_AMOUNT = 0.7f;
+    private final int DISMISS_DELAY = 100; // ms
     final private Handler mHandler = new Handler();
     private String mMessage;
     private TextView tvMessage;
     private Runnable mRunnable;
 
-    private float mDimAmount = 0.7f;
+    private float mDimAmount = DEFAULT_DIM_AMOUNT;
     private int mTintColor = R.color.colorProgressDialog;
 
     public static FullscreenProgressDialog dialogWithCustomMessage(String message) {
@@ -115,12 +117,18 @@ public class FullscreenProgressDialog extends BaseFullscreenDialog {
             mHandler.removeCallbacks(mRunnable);
             mRunnable = null;
         }
-        if (isShowing()) {
-            try {
-                super.dismissAllowingStateLoss();
-            } catch (IllegalStateException ignored) {
 
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (isShowing()) {
+                    try {
+                        FullscreenProgressDialog.super.dismissAllowingStateLoss();
+                    } catch (IllegalStateException ignored) {
+
+                    }
+                }
             }
-        }
+        }, DISMISS_DELAY);
     }
 }
