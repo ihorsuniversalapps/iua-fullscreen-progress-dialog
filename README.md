@@ -8,13 +8,13 @@ Simple progress indicator dialog that blocks UI during background process is run
 
 ### Dependency
 
-[Download](https://bintray.com/phoenixria/maven/iua-fullscreen-progress-dialog/1.0.0/view)
+[Download](https://bintray.com/phoenixria/maven/iua-fullscreen-progress-dialog/1.0.3/view)
 
 Include the dependency:
 
 ```groovy
 dependencies {
-    compile 'ua.in.iua:iua-fullscreen-progress-dialog:1.0.2'
+    compile 'ua.in.iua:iua-fullscreen-progress-dialog:1.0.3'
 }
 ```
 ### Usage
